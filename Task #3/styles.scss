@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+$outer-box-width: 370px;
+$outer-box-height: 679px;
+$inner-box-width: 345px;
+$inner-box-height: 600px;
+$arrow-size: 30px;
+$arrow-color: #333;
+
+@mixin smooth-edges($radius: 6px) {
+  border-radius: $radius;
+}
+
+@mixin bold-text {
+    font-weight: bold;
+    color: black; 
+    font-size: 20px; 
+    font-family: 'Arial', sans-serif;
+}
+
+@mixin text {
+    color: #747373; 
+    font-size: 17px; 
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+@mixin 	heading {
+    color: #00008b; 
+    font-size: 21px;
+    font-weight: bold;
+}
+
+@mixin 	black-text {
+    color: black; 
+    font-size: 17px; 
+    font-family: Calibri;
+}
+
+@mixin soft-line {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+.outer-box {
+  width: $outer-box-width;
+  height: $outer-box-height;
+  background-color: #f0f0f0;
+  padding: 10px; 
+  border: none;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  -webkit-backdrop-filter: blur(10px);
+  flex-direction: column;
+  position: relative; 
+}
+
+.arrow.top-right {
+    top: 5;
+    right: 0;
+    position: absolute;
+    font-size: 20px;
+    color: $arrow-color;
+    cursor: pointer;
+}
+  
+.arrow.bottom {
+    bottom: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 13px;
+    position: absolute;
+    font-size: $arrow-size;
+    color: $arrow-color;
+    cursor: pointer;
+}
+
+.inner-box {
+  width: $inner-box-width;
+  height: $inner-box-height;
+  background-color: #ffffff;
+  margin: 0 auto; 
+  @include smooth-edges(8px);   
+  position: relative;
+  overflow: auto;
+}
+
+.box {
+    box-sizing: border-box;
+    padding: 5px;
+
+}
+
+.inner-box::-webkit-scrollbar {
+    width: 0.5em;
+}
+  
+.inner-box::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+.box::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.Title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 21px;
+    color: #00008B;
+}
+  
+.toggle-switch {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    display: inline-block;
+    width: 33px;
+    height: 21px;
+}
+
+.toggle-switch input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-switch-label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10.5px;
+    background-color: #ccc;
+    transition: background-color 0.2s;
+}
+
+.toggle-switch-label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background-color: #888;
+    transition: transform 0.2s;
+}
+
+.toggle-switch input[type="checkbox"]:checked + .toggle-switch-label {
+    background-color: #00008b;
+}
+
+.toggle-switch input[type="checkbox"]:checked + .toggle-switch-label::before {
+    transform: translateX(12px);
+}
+
+.bold-text {
+    @include bold-text;
+}
+
+.text {
+    @include text;
+}
+
+.heading {
+    @include heading;
+}
+
+.black-text {
+    @include black-text;
+}
+
+hr.soft-line {
+    @include soft-line;
+  }
